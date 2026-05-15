@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elohim Log | Soluções Logísticas</title>
+    <style>
+        :root {
+            --preto: #050505;
+            --dourado: #c5a059;
+            --prata: #e0e0e0;
+            --branco: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--preto);
+            color: var(--branco);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Menu */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #000;
+            border-bottom: 1px solid var(--dourado);
+            z-index: 1000;
+        }
+
+        .brand { color: var(--dourado); font-weight: 800; font-size: 1.4rem; }
+
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        nav a:hover { color: var(--dourado); }
+
+        /* Container de Conteúdo */
+        main { flex: 1; position: relative; overflow-y: auto; }
+
+        /* Estilo das "Páginas" */
+        .page {
+            display: none; 
+            padding: 60px 15%;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* INÍCIO */
+        #inicio { text-align: center; padding-top: 100px; }
+        #inicio img { max-width: 650px; width: 90%; height: auto; }
+
+        /* SOBRE NÓS */
+        h2 { color: var(--dourado); font-size: 2.2rem; margin-bottom: 30px; text-transform: uppercase; border-left: 5px solid var(--prata); padding-left: 15px; }
+        
+        .texto-sobre { font-size: 1.1rem; line-height: 1.6; color: var(--prata); text-align: justify; }
+        .texto-sobre p { margin-bottom: 20px; }
+
+        /* Grid de Missão, Visão e Valores */
+        .mvv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .mvv-box {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 25px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .mvv-box:hover { border-color: var(--dourado); transform: translateY(-5px); }
+
+        .mvv-box h3 { 
+            color: var(--dourado); 
+            margin-bottom: 15px; 
+            font-size: 1.2rem; 
+            text-transform: uppercase; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mvv-box p, .mvv-box ul { 
+            font-size: 0.95rem; 
+            line-height: 1.5; 
+            text-align: left; /* Evita o espaçamento estranho entre palavras */
+            color: var(--prata);
+        }
+
+        .mvv-box ul { list-style: none; }
+        .mvv-box ul li { margin-bottom: 10px; }
+
+        /* CONTATO */
+        .contato-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-top: 30px; }
+        .caixa-qr { background: white; padding: 15px; border-radius: 10px; text-align: center; width: fit-content; }
+        .caixa-qr img { width: 180px; }
+        .caixa-qr p { color: black; font-weight: bold; font-size: 0.8rem; margin-top: 5px; }
+
+        .btn-whats {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: var(--dourado);
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #444; border-top: 1px solid #111; margin-top: auto; }
+
+        @media (max-width: 768px) {
+            .page { padding: 40px 8%; }
+            h2 { font-size: 1.8rem; }
+            .mvv-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">ELOHIM LOG</div>
+        <nav>
+            <a onclick="showPage('inicio')">Início</a>
+            <a onclick="showPage('sobre')">Sobre Nós</a>
+            <a onclick="showPage('contato')">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="page active">
+            <img src="Logo.png.png" alt="Elohim Log Logo">
+        </section>
+
+        <section id="sobre" class="page">
+            <h2>Sobre Nós</h2>
+            <div class="texto-sobre">
+                <p>A <strong>Elohim Log Soluções Logísticas</strong> é especializada em gestão logística para operações de e-commerce e varejo, oferecendo soluções completas e personalizadas para empresas do segmento alimentício e bens de consumo.</p>
+                
+                <p>Nosso objetivo é estruturar, organizar e operar toda a cadeia logística dos nossos clientes, desde o recebimento de mercadorias, armazenagem e controle de estoque, até a separação, expedição e envio dos pedidos, garantindo agilidade, rastreabilidade, eficiência operacional e redução de erros.</p>
+
+                <p>Trabalhamos com processos simples, eficientes e escaláveis, proporcionando mais controle logístico e permitindo que nossos parceiros foquem no crescimento estratégico de suas vendas, enquanto cuidamos de toda a operação logística com excelência.</p>
+                
+                <div class="mvv-container">
+                    <div class="mvv-box">
+                        <h3>🎯 Missão</h3>
+                        <p>Prover soluções logísticas inteligentes e ágeis, garantindo a integridade dos produtos e a satisfação total do cliente final através da excelência operacional.</p>
+                    </div>
+
+                    <div class="mvv-box">
+                        <h3>🔭 Visão</h3>
+                        <p>Ser a parceira estratégica preferida no setor logístico, reconhecida pela inovação, confiabilidade e capacidade de escalar negócios através de uma gestão eficiente.</p>
+                    </div>
+
+                    <div class="mvv-box">
+                        <h3>💎 Valores</h3>
+                        <ul>
+                            <li>⚡ <strong>Agilidade:</strong> Eficiência em cada etapa.</li>
+                            <li>🛡️ <strong>Segurança:</strong> Cuidado rigoroso com o estoque.</li>
+                            <li>🤝 <strong>Parceria:</strong> O seu crescimento é o nosso sucesso.</li>
+                            <li>📊 <strong>Precisão:</strong> Controle total e redução de erros.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="page">
+            <h2>Contato</h2>
+            <div class="contato-wrapper">
+                <div>
+                    <p style="font-size: 1.4rem; margin-bottom: 10px;">📞 <strong>11 98835-4844</strong></p>
+                    <p style="font-size: 1.1rem;">📧 elohimlog26@gmail.com</p>
+                    <a href="https://wa.me/5511988354844" target="_blank" class="btn-whats">WHATSAPP</a>
+                </div>
+                <div class="caixa-qr">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://wa.me/5511988354844" alt="QR Code">
+                    <p>ESCANEAR PARA WHATSAPP</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 ELOHIM LOG SOLUÇÕES LOGÍSTICAS.
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Esconde todas as páginas removendo a classe active
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Mostra apenas a página clicada
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Rola para o topo ao trocar de página
+            document.querySelector('main').scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
